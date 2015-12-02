@@ -10,6 +10,7 @@ install:
 - ./mvnw install -P docs -q -U -DskipTests=true -Dmaven.test.redirectTestOutputToFile=true
 - '[ "${TRAVIS_BRANCH}" != "master" ] || ./docs/src/main/asciidoc/ghpages.sh'
 script:
+- ./travis.sh
 - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./mvnw -s .settings.xml deploy -nsu -Dmaven.test.redirectTestOutputToFile=true'
 - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] || ./mvnw install -nsu -Dmaven.test.redirectTestOutputToFile=true'
 env:
@@ -17,4 +18,5 @@ env:
   - GIT_NAME="Spencer Gibb"
   - GIT_EMAIL=sgibb@pivotal.io
   - CI_DEPLOY_USERNAME=sgibb
+  - SONAR_HOST_URL=sonar.spring.io
   - secure: dxec/7oFht2WMaw4GNFNvuWHlnkm1wmFagE3ZrtCcU2SHUW/P2FgG5tiNW9hT2eXHf2H0YUF1ROkL4BrH5qpIlOBtYd0J8Q/67vBqyB112IN2FqoB/F6Erkfp1FKMBBrXXYaGoSvqzmJs6zqS3JRpyr010W2aU8klK0QfqRoJ0g=
