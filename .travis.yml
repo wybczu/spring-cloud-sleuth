@@ -12,6 +12,7 @@ install:
 script:
 - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./mvnw -s .settings.xml deploy -nsu -Dmaven.test.redirectTestOutputToFile=true'
 - '[ "${TRAVIS_PULL_REQUEST}" = "false" ] || ./mvnw install -nsu -Dmaven.test.redirectTestOutputToFile=true'
+- sh -e scripts/runAcceptanceTests.sh
 env:
   global:
   - GIT_NAME="Spencer Gibb"
