@@ -1,5 +1,7 @@
 language: java
-sudo: false
+sudo: true
+services:
+  - docker
 before_install:
   - git config user.name "$GIT_NAME"
   - git config user.email "$GIT_EMAIL"
